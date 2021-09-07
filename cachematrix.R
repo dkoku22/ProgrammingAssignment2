@@ -1,3 +1,9 @@
+## These functions read a matrix which is then solved and cached to avoid
+## recalculation of the inverse
+
+## The function here prompts the user to give a matrix which is read and cached
+## with a list that with functions that get and set the inverse
+
 makeCacheMatrix <- function(x = matrix()) {
   inver <- NULL
   set <- function(y) {
@@ -11,7 +17,9 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-
+## This function calculates the the inverse of the matrix created with the
+## function above. If the inverse has already been calculated, cache is searched
+## to find the calculated inverse.
 
 cacheSolve <- function(x, ...) {
   inver <- x$getInverse()
@@ -24,3 +32,4 @@ cacheSolve <- function(x, ...) {
   x$setInverse(inver)
   inver
 }
+
